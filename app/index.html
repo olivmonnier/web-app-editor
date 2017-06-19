@@ -44,23 +44,40 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
+        width: 100%;
+        height: 100%;
       }
       body {
         background-color: #010101;
       }
+      main {
+        height: calc(100% - 30px);
+      }
     	.ace_editor {
     		margin: auto;
-    		height: 200px;
+    		height: 100%;
     		width: 100%;
     	}
     </style>
   </head>
   <body>
-    <pre id="editor"></pre>
+    <main>
+      <header>
+        <div>
+          <input type="file" name="file" id="openFile"/>
+          <button id="saveFile">Save</button>
+        </div>
+      </header>
+      <pre id="editor"></pre>
+    </main>
 
     <script src="scripts/ace/ace.js"></script>
     <script src="scripts/ace/ext-modelist.js"></script>
+
     <!-- build:js scripts/main.min.js -->
+    <script src="scripts/FileSaver.min.js"></script>
+    <script src="scripts/editor.js"></script>
+    <script src="scripts/file.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 
@@ -74,21 +91,5 @@
       ga('send', 'pageview');
     </script>
     <!-- Built with love using Web Starter Kit -->
-
-    <script>
-      var editor = ace.edit("editor");
-      editor.setTheme("ace/theme/monokai");
-      editor.session.setMode("ace/mode/html");
-      editor.setAutoScrollEditorIntoView(true);
-      editor.setOption("maxLines", 100);
-
-      (function(){
-        var modelist = ace.require("ace/ext/modelist");
-        var filePath = "blahblah/weee/some.html";
-        var mode = modelist.getModeForPath(filePath).mode;
-        console.log(mode);
-        editor.session.setMode(mode);
-      }())
-    </script>
   </body>
 </html>
