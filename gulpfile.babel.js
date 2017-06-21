@@ -52,7 +52,7 @@ gulp.task('images', () =>
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('dist/images'))
+    .pipe(gulp.dest('dist/public/images'))
     .pipe($.size({title: 'images'}))
 );
 
@@ -64,7 +64,7 @@ gulp.task('copy', () =>
     'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'))
+  }).pipe(gulp.dest('dist/public'))
     .pipe($.size({title: 'copy'}))
 );
 
@@ -72,7 +72,7 @@ gulp.task('copy:ace', () =>
   gulp.src([
     './node_modules/ace-builds/src-min-noconflict/**/*'
   ]).pipe(gulp.dest('.tmp/scripts/ace'))
-    .pipe(gulp.dest('dist/scripts/ace'))
+    .pipe(gulp.dest('dist/public/scripts/ace'))
     .pipe($.size({title: 'copy:ace'}))
 )
 
@@ -106,7 +106,7 @@ gulp.task('styles', () => {
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.size({title: 'styles'}))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('dist/styles'))
+    .pipe(gulp.dest('dist/public/styles'))
     .pipe(gulp.dest('.tmp/styles'));
 });
 
@@ -134,7 +134,7 @@ gulp.task('scripts', () =>
       // Output files
       .pipe($.size({title: 'scripts'}))
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
+      .pipe(gulp.dest('dist/public/scripts'))
       .pipe(gulp.dest('.tmp/scripts'))
 );
 
@@ -160,7 +160,7 @@ gulp.task('html', () => {
     })))
     // Output files
     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/public'));
 });
 
 // Clean output directory
@@ -199,7 +199,9 @@ gulp.task('serve:dist', ['default'], () =>
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: 'dist',
+    server: {
+      baseDir: ['dist/public']
+    },
     port: 3001
   })
 );
@@ -208,7 +210,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy', 'copy:ace'],
+    ['html', 'scripts', 'images', 'copy', 'copy:ace'],
     'generate-service-worker',
     cb
   )
@@ -228,7 +230,7 @@ gulp.task('pagespeed', cb =>
 // Copy over the scripts that are used in importScripts as part of the generate-service-worker task.
 gulp.task('copy-sw-scripts', () => {
   return gulp.src(['node_modules/sw-toolbox/sw-toolbox.js', 'app/scripts/sw/runtime-caching.js'])
-    .pipe(gulp.dest('dist/scripts/sw'));
+    .pipe(gulp.dest('dist/public/scripts/sw'));
 });
 
 // See http://www.html5rocks.com/en/tutorials/service-worker/introduction/ for
@@ -237,7 +239,7 @@ gulp.task('copy-sw-scripts', () => {
 // local resources. This should only be done for the 'dist' directory, to allow
 // live reload to work as expected when serving from the 'app' directory.
 gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
-  const rootDir = 'dist';
+  const rootDir = 'dist/public';
   const filepath = path.join(rootDir, 'service-worker.js');
 
   return swPrecache.write(filepath, {
