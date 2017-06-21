@@ -6,7 +6,7 @@ const handleFileSelect = function(e) {
   reader.onload = function(e) {
     editor.setValue(reader.result);
     Editor.setMode(editor, file.name);
-    App.filename = file.name;
+    document.getElementById('filename').value = file.name;
   }
 
   if (file) {
@@ -14,14 +14,19 @@ const handleFileSelect = function(e) {
   }
 }
 
+const handleFilename = function(e) {
+  const { editor } = window.App;
+
+  Editor.setMode(editor, document.getElementById('filename').value);
+}
+
 const handleFileSave = function(e) {
-  const { editor, filename } = window.App;
+  const { editor } = window.App;
   const blob = new Blob([editor.getValue()], {type: "text/plain;charset=utf-8"});
 
-  if(filename) {
-    saveAs(blob, filename);
-  }
+  saveAs(blob, document.getElementById('filename').value);
 }
 
 document.getElementById('openFile').addEventListener('change', handleFileSelect);
+document.getElementById('filename').addEventListener('change', handleFilename);
 document.getElementById('saveFile').addEventListener('click', handleFileSave);

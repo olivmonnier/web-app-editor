@@ -26,10 +26,10 @@
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <meta name="msapplication-TileColor" content="#111111">
 
     <!-- Color the status bar on mobile devices -->
-    <meta name="theme-color" content="#2F3BA2">
+    <meta name="theme-color" content="#111111">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -63,10 +63,9 @@
   <body>
     <main>
       <header>
-        <div>
-          <input type="file" name="file" id="openFile"/>
-          <button id="saveFile">Save</button>
-        </div>
+        <input type="file" id="openFile"/>
+        <input type="text" id="filename" value="document.txt"/>
+        <button id="saveFile">Save</button>
       </header>
       <pre id="editor"></pre>
     </main>
