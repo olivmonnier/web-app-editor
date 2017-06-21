@@ -38,43 +38,26 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
-
-    <style type="text/css" media="screen">
-      html, body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-      }
-      body {
-        background-color: #010101;
-      }
-      main {
-        height: calc(100% - 30px);
-      }
-    	.ace_editor {
-    		margin: auto;
-    		height: 100%;
-    		width: 100%;
-    	}
-    </style>
   </head>
   <body>
+    <nav class="menu menu--push-left"></nav>
     <main>
       <header>
         <input type="file" id="openFile"/>
         <input type="text" id="filename" value="document.txt"/>
-        <button id="saveFile">Save</button>
+        <button id="exportFile">Export</button>
       </header>
       <pre id="editor"></pre>
     </main>
+    <div id="mask" class="mask"></div>
 
     <script src="scripts/ace/ace.js"></script>
     <script src="scripts/ace/ext-modelist.js"></script>
 
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/FileSaver.min.js"></script>
+    <script src="scripts/localStorage.js"></script>
+    <script src="scripts/menu.js"></script>
     <script src="scripts/editor.js"></script>
     <script src="scripts/file.js"></script>
     <script src="scripts/main.js"></script>

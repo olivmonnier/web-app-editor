@@ -20,7 +20,7 @@ const handleFilename = function(e) {
   Editor.setMode(editor, document.getElementById('filename').value);
 }
 
-const handleFileSave = function(e) {
+const handleFileExport = function(e) {
   const { editor } = window.App;
   const blob = new Blob([editor.getValue()], {type: "text/plain;charset=utf-8"});
 
@@ -29,4 +29,4 @@ const handleFileSave = function(e) {
 
 document.getElementById('openFile').addEventListener('change', handleFileSelect);
 document.getElementById('filename').addEventListener('change', handleFilename);
-document.getElementById('saveFile').addEventListener('click', handleFileSave);
+document.getElementById('exportFile').addEventListener('click', handleFileExport);
