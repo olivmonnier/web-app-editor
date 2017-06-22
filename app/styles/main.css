@@ -33,6 +33,15 @@ body {
 }
 
 main {
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+header {
+  height: 30px;
+}
+
+section {
   height: calc(100% - 30px);
 }
 
@@ -45,14 +54,11 @@ main {
 /**
  * MENU
  */
- main {
-   transition: transform 0.3s;
- }
- 
+
 .menu {
   position: fixed;
   z-index: 200;
-  background-color: #67b5d1;
+  background-color: #001f3f;
   transition: transform 0.3s;
 }
 
@@ -64,7 +70,7 @@ main {
 
 .menu__close {
   color: #fff;
-  background-color: #3184a1;
+  background-color: rgba(0, 0, 0, .5);
   font-size: 14px;
   border: none;
   box-shadow: none;
@@ -106,7 +112,7 @@ body.has-active-menu {
 .menu--push-left {
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 @media all and (min-width: 320px) {
@@ -117,9 +123,9 @@ body.has-active-menu {
 
 .menu--push-left .menu__item {
   display: block;
-  text-align: center;
-  border-top: solid 1px #b5dbe9;
-  border-bottom: solid 1px #3184a1;
+  text-align: left;
+  border-top: solid 1px #001b38;
+  border-bottom: solid 1px #193552;
 }
 
 .menu--push-left .menu__item:first-child {
@@ -130,16 +136,23 @@ body.has-active-menu {
   border-bottom: none;
 }
 
+.menu--push-left .menu__item .menu__remove {
+  float: right;
+}
+
 .menu--push-left .menu__link {
   display: block;
   padding: 12px 24px;
   color: #fff;
+  cursor: pointer;
 }
 
 .menu--push-left .menu__close {
   display: block;
   padding: 12px 24px;
   width: 100%;
+  text-align: right;
+  cursor: pointer;
 }
 
 .menu--push-left {

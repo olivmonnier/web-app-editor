@@ -1,16 +1,35 @@
+const $body = document.body;
+const $btnMenu = document.getElementById('btnMenuOpen');
+const $main = document.querySelector('main');
+const $menu = document.querySelector('.menu');
+const $mask = document.querySelector('.mask');
+const $btnClose = document.querySelector('.menu .menu__close');
+
+const _addClass = function(elem, className) {
+  return elem.classList.add(className);
+}
+
+const _removeClass = function(elem, className) {
+  return elem.classList.remove(className);
+}
+
 const open = function() {
-  document.body.classList.add('has-active-menu');
-  document.querySelector('main').classList.add('has-push-left');
-  document.querySelector('.menu').classList.add('is-active');
-  document.querySelector('.mask').classList.add('is-active');
+  _addClass($body, 'has-active-menu');
+  _addClass($main, 'has-push-left');
+  _addClass($menu, 'is-active');
+  _addClass($mask, 'is-active');
 }
 
 const close = function() {
-  document.body.classList.remove('has-active-menu');
-  document.querySelector('main').classList.remove('has-push-left');
-  document.querySelector('.menu').classList.remove('is-active');
-  document.querySelector('.mask').classList.remove('is-active');
+  _removeClass($body, 'has-active-menu');
+  _removeClass($main, 'has-push-left');
+  _removeClass($menu, 'is-active');
+  _removeClass($mask, 'is-active');
 }
+
+$btnMenu.addEventListener('click', open);
+$btnClose.addEventListener('click', close);
+$mask.addEventListener('click', close);
 
 window.Menu = {
   open,

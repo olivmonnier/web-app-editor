@@ -15,16 +15,21 @@ const getFile = function(filename) {
 }
 
 const saveFile = function(filename, content) {
-  const files = JSON.parse(_get('files')) || [];
+  let newDoc = false;
+  const files = listFiles();
 
-  if (!_get(filename)) {
-    _set('files', JSON.stringify(files.push(filename)))
+  if (!_get(filename) && _get(filename) !== '') {
+    newDoc = true;
+    files.push(filename);
+    _set('files', JSON.stringify(files))
   }
-  return _set(filename, content);
+  _set(filename, content);
+
+  return newDoc;
 }
 
 const deleteFile = function(filename) {
-  const files = JSON.parse(_get('files'));
+  const files = listFiles();
   const indexFile = files.indexOf(filename);
 
   files.splice(indexFile, 1);
@@ -33,7 +38,7 @@ const deleteFile = function(filename) {
 }
 
 const listFiles = function() {
-  return JSON.parse(_get('files'));
+  return JSON.parse(_get('files')) || [];
 }
 
 window.Local = {
