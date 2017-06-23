@@ -44,6 +44,12 @@ section {
   height: calc(100% - 40px);
 }
 
+@media all and (max-width: 767px) {
+  section {
+    height: calc(100% - 80px);
+  }
+}
+
 .ace_editor {
   margin: auto;
   height: 100%;
@@ -53,7 +59,7 @@ section {
 /*
  * header
  */
-header {
+header, .menu-special-char {
   display: block;
   height: 40px;
   background-color: #001f3f;
@@ -73,9 +79,9 @@ header > *, header > nav > * {
   vertical-align: middle;
 }
 
-header > nav > input[type="text"] {
-  background-color: #193552;
-  text-align: left;
+header > nav input[type="text"] {
+  background-color: #193552 !important;
+  text-align: left !important;
 }
 
 header button, header input {
@@ -85,7 +91,8 @@ header button, header input {
   border-color: transparent;
 }
 
-header .nav-item {
+.nav-item {
+  display: inline-block;
   padding: 8px 16px;
   border-left: 1px solid #001b38;
   border-right: 1px solid #324b65;
@@ -209,11 +216,15 @@ body.has-active-menu {
 
 .menu--push-left .menu__close {
   display: block;
-  padding: 12px 30px;
+  padding: 12px 30px 12px 24px;
   width: 100%;
   text-align: right;
   font-weight: bold;
   cursor: pointer;
+}
+
+.menu--push-left .menu__close > strong {
+  float: left;
 }
 
 .menu--push-left {
@@ -242,6 +253,27 @@ main.has-push-left {
   }
 }
 
+/************************************************/
+/*
+ * Menu Special Character
+ */
+.menu-special-char {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.menu-special-char .nav-item {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+@media all and (min-width: 768px) {
+  .menu-special-char {
+    display: none;
+  }
+}
 /************************************************/
 /*
  * Scroll horizontal

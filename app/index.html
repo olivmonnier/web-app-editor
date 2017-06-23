@@ -41,7 +41,7 @@
   </head>
   <body>
     <nav class="menu menu--push-left">
-      <button class="menu__close">X</button>
+      <button class="menu__close"><strong>Documents</strong>X</button>
       <ul class="menu__items"></ul>
     </nav>
     <main>
@@ -58,6 +58,29 @@
       <section>
         <pre id="editor"></pre>
       </section>
+      <nav class="menu-special-char scroll-horizontal">
+        <a class="nav-item">{</a>
+        <a class="nav-item">}</a>
+        <a class="nav-item">[</a>
+        <a class="nav-item">]</a>
+        <a class="nav-item">(</a>
+        <a class="nav-item">)</a>
+        <a class="nav-item"><</a>
+        <a class="nav-item">></a>
+        <a class="nav-item">:</a>
+        <a class="nav-item">;</a>
+        <a class="nav-item">,</a>
+        <a class="nav-item">|</a>
+        <a class="nav-item">@</a>
+        <a class="nav-item">&</a>
+        <a class="nav-item">/</a>
+        <a class="nav-item">\</a>
+        <a class="nav-item">#</a>
+        <a class="nav-item">-</a>
+        <a class="nav-item">_</a>
+        <a class="nav-item">?</a>
+        <a class="nav-item">%</a>
+      </nav>
     </main>
     <div id="mask" class="mask"></div>
 
@@ -67,7 +90,8 @@
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/FileSaver.min.js"></script>
     <script src="scripts/localStorage.js"></script>
-    <script src="scripts/menu.js"></script>
+    <script src="scripts/menuLeft.js"></script>
+    <script src="scripts/menuSpecialChar.js"></script>
     <script src="scripts/editor.js"></script>
     <script src="scripts/file.js"></script>
     <script src="scripts/main.js"></script>

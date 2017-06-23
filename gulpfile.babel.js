@@ -120,7 +120,8 @@ gulp.task('scripts', () =>
       //       to be correctly concatenated
       './app/scripts/FileSaver.min.js',
       './app/scripts/localStorage.js',
-      './app/scripts/menu.js',
+      './app/scripts/menuLeft.js',
+      './app/scripts/menuSpecialChar.js',
       './app/scripts/editor.js',
       './app/scripts/file.js',
       './app/scripts/main.js'
