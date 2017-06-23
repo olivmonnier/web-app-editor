@@ -46,11 +46,14 @@
     </nav>
     <main>
       <header>
-        <button id="btnMenuOpen">Menu</button>
-        <input type="file" id="btnFileOpen"/>
-        <input type="text" id="filename" value="document.txt"/>
-        <button id="btnFileSave">Save</button>
-        <button id="btnFileExport">Export</button>
+        <button id="btnMenuOpen" class="nav-item">Menu</button>
+        <nav class="scroll-horizontal">
+          <label for="btnFileOpen" class="label-file nav-item">Select a file</label>
+          <input type="file" class="input-file" id="btnFileOpen"/>
+          <input type="text" class="nav-item" id="filename" value="document.txt"/>
+          <button class="nav-item" id="btnFileSave">Save</button>
+          <button class="nav-item" id="btnFileExport">Export</button>
+        </nav>
       </header>
       <section>
         <pre id="editor"></pre>

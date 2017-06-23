@@ -18,6 +18,9 @@
 Note: any .css or .scss files included in the 'styles' directory
 will be correctly compiled during `gulp serve` and `gulp`
  */
+ * {
+   box-sizing: border-box;
+ }
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -37,12 +40,8 @@ main {
   transition: transform 0.3s;
 }
 
-header {
-  height: auto;
-}
-
 section {
-  height: calc(100% - 30px);
+  height: calc(100% - 40px);
 }
 
 .ace_editor {
@@ -51,6 +50,60 @@ section {
   width: 100%;
 }
 
+/*
+ * header
+ */
+header {
+  display: block;
+  height: 40px;
+  background-color: #001f3f;
+  font-size: 0;
+}
+
+header > button {
+  width: 70px;
+}
+
+header > nav {
+  width: calc(100% - 70px);
+}
+
+header > *, header > nav > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+header button, header input {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+header input[type="text"] {
+  background-color: #193552;
+  text-align: left;
+}
+
+header .nav-item {
+  padding: 8px 16px;
+  border-left: 1px solid #001b38;
+  border-right: 1px solid #324b65;
+  text-align: center;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  color: #e5e8eb;
+  cursor: pointer;
+}
+
+header .nav-item:first-child {
+  border-left: none;
+}
+
+header .nav-item:last-child {
+  border-right: none;
+}
+/************************************************/
 /**
  * MENU
  */
@@ -69,7 +122,7 @@ section {
 }
 
 .menu__close {
-  color: #fff;
+  color: #e5e8eb;
   background-color: rgba(0, 0, 0, .5);
   font-size: 14px;
   border: none;
@@ -138,12 +191,15 @@ body.has-active-menu {
 
 .menu--push-left .menu__item .menu__remove {
   float: right;
+  background-color: transparent;
+  border-color: transparent;
+  color: #e5e8eb;
 }
 
 .menu--push-left .menu__link {
   display: block;
   padding: 12px 24px;
-  color: #fff;
+  color: #e5e8eb;
   cursor: pointer;
 }
 
@@ -179,4 +235,26 @@ main.has-push-left {
   main.has-push-left {
     transform: translateX(300px);
   }
+}
+
+/************************************************/
+/*
+ * Scroll horizontal
+ */
+ .scroll-horizontal {
+   white-space: nowrap;
+   overflow-x: auto;
+   -webkit-overflow-scrolling: touch;
+   -ms-overflow-style: -ms-autohiding-scrollbar;
+ }
+/************************************************/
+/*
+ * Input file
+ */
+.label-file {
+  cursor: pointer;
+  font-size: 12px;
+}
+.input-file {
+  display: none;
 }
