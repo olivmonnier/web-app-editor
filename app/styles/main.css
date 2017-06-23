@@ -23,7 +23,7 @@ will be correctly compiled during `gulp serve` and `gulp`
  }
 
 html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -73,16 +73,16 @@ header > *, header > nav > * {
   vertical-align: middle;
 }
 
+header > nav > input[type="text"] {
+  background-color: #193552;
+  text-align: left;
+}
+
 header button, header input {
   margin: 0;
   padding: 0;
   background-color: transparent;
   border-color: transparent;
-}
-
-header input[type="text"] {
-  background-color: #193552;
-  text-align: left;
 }
 
 header .nav-item {
@@ -178,7 +178,7 @@ body.has-active-menu {
   display: block;
   text-align: left;
   border-top: solid 1px #001b38;
-  border-bottom: solid 1px #193552;
+  border-bottom: solid 1px #324b65;
 }
 
 .menu--push-left .menu__item:first-child {
@@ -193,21 +193,26 @@ body.has-active-menu {
   float: right;
   background-color: transparent;
   border-color: transparent;
+  font-weight: bold;
   color: #e5e8eb;
 }
 
 .menu--push-left .menu__link {
   display: block;
   padding: 12px 24px;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
   color: #e5e8eb;
   cursor: pointer;
 }
 
 .menu--push-left .menu__close {
   display: block;
-  padding: 12px 24px;
+  padding: 12px 30px;
   width: 100%;
   text-align: right;
+  font-weight: bold;
   cursor: pointer;
 }
 

@@ -173,7 +173,7 @@ gulp.task('serve', ['scripts', 'styles', 'copy:ace'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
-    logPrefix: 'WSK',
+    logPrefix: 'WAE',
     // Allow scroll syncing across breakpoints
     scrollElementMapping: ['main', '.mdl-layout'],
     // Run as an https by uncommenting 'https: true'
