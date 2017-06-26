@@ -60,6 +60,7 @@ gulp.task('fonts', () => {
   gulp.src([
     'node_modules/font-awesome/fonts/**/*'
   ]).pipe(gulp.dest('app/fonts'))
+    .pipe(gulp.dest('dist/public/fonts'))
     .pipe($.size({title: 'fonts'}))
 });
 
