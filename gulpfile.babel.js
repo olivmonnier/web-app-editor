@@ -139,6 +139,7 @@ gulp.task('scripts', () =>
       './app/scripts/menuSpecialChar.js',
       './app/scripts/editor.js',
       './app/scripts/file.js',
+      './app/scripts/settings.js',
       './app/scripts/main.js'
       // Other scripts
     ])
