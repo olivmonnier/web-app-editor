@@ -50,6 +50,12 @@ section {
   }
 }
 
+@media all and (max-width: 767px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+
 .ace_editor {
   margin: auto;
   height: 100%;
@@ -67,11 +73,11 @@ header, .menu-special-char {
 }
 
 header > button {
-  width: 70px;
+  width: 50px;
 }
 
 header > nav {
-  width: calc(100% - 70px);
+  width: calc(100% - 50px);
 }
 
 header > *, header > nav > * {

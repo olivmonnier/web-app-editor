@@ -56,6 +56,20 @@ gulp.task('images', () =>
     .pipe($.size({title: 'images'}))
 );
 
+gulp.task('fonts', () => {
+  gulp.src([
+    'node_modules/font-awesome/fonts/**/*'
+  ]).pipe(gulp.dest('app/fonts'))
+    .pipe($.size({title: 'fonts'}))
+});
+
+gulp.task('fonts:css', () => {
+  gulp.src([
+    'node_modules/font-awesome/css/font-awesome.css'
+  ]).pipe(gulp.dest('app/styles'))
+    .pipe($.size({title: 'fonts:css'}))
+});
+
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
   gulp.src([
@@ -170,7 +184,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/public/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['scripts', 'styles', 'copy:ace'], () => {
+gulp.task('serve', ['scripts', 'styles', 'copy:ace', 'fonts', 'fonts:css'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -212,6 +226,7 @@ gulp.task('serve:dist', ['default'], () =>
 // Build production files, the default task
 gulp.task('default', ['clean'], cb =>
   runSequence(
+    ['fonts', 'fonts:css'],
     'styles',
     ['html', 'scripts', 'images', 'copy', 'copy:ace'],
     'generate-service-worker',
