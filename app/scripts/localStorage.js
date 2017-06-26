@@ -41,9 +41,19 @@ const listFiles = function() {
   return JSON.parse(_get('files')) || [];
 }
 
+const getSettings = function() {
+  return JSON.parse(_get('settings')) || {};
+}
+
+const saveSettings = function(params) {
+  return _set('settings', JSON.stringify(params))
+}
+
 window.Local = {
   getFile,
   saveFile,
   deleteFile,
-  listFiles
+  listFiles,
+  getSettings,
+  saveSettings
 }

@@ -68,7 +68,7 @@ const renderFileItem = function(filename) {
   $btnOpen.classList.add('menu__link');
   $btnRemove.classList.add('menu__remove');
   $btnOpen.textContent = filename;
-  $btnRemove.textContent = 'x';
+  $btnRemove.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
   $btnOpen.appendChild($btnRemove);
   $li.appendChild($btnOpen);
 

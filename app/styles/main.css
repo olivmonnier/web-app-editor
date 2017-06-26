@@ -73,15 +73,22 @@ header, .menu-special-char {
 }
 
 header > button {
-  width: 50px;
+  width: 45px;
 }
 
 header > nav {
-  width: calc(100% - 50px);
+  width: calc(100% - 90px);
 }
 
 header > *, header > nav > * {
   display: inline-block;
+}
+
+header > * {
+  vertical-align: top;
+}
+
+header > nav > * {
   vertical-align: middle;
 }
 
@@ -155,6 +162,10 @@ body.has-active-menu {
   overflow: hidden;
 }
 
+body.has-active-menu #editor {
+  z-index: 0;
+}
+
 .mask {
   position: fixed;
   z-index: 100;
@@ -175,34 +186,40 @@ body.has-active-menu {
   transition: opacity 0.3s;
 }
 
-.menu--push-left {
+.menu--push-left,
+.menu--slide-right {
   width: 100%;
   height: 100%;
   overflow-y: auto;
 }
 
 @media all and (min-width: 320px) {
-  .menu--push-left {
+  .menu--push-left,
+  .menu--slide-right {
     width: 300px;
   }
 }
 
-.menu--push-left .menu__item {
+.menu--push-left .menu__item,
+.menu--slide-right .menu__item {
   display: block;
   text-align: left;
   border-top: solid 1px #001b38;
   border-bottom: solid 1px #324b65;
 }
 
-.menu--push-left .menu__item:first-child {
+.menu--push-left .menu__item:first-child,
+.menu--slide-right .menu__item:first-child {
   border-top: none;
 }
 
-.menu--push-left .menu__item:last-child {
+.menu--push-left .menu__item:last-child,
+.menu--slide-right .menu__item:last-child {
   border-bottom: none;
 }
 
-.menu--push-left .menu__item .menu__remove {
+.menu--push-left .menu__item .menu__remove,
+.menu--slide-right .menu__item .menu__remove {
   float: right;
   background-color: transparent;
   border-color: transparent;
@@ -210,7 +227,8 @@ body.has-active-menu {
   color: #e5e8eb;
 }
 
-.menu--push-left .menu__link {
+.menu--push-left .menu__link,
+.menu--slide-right .menu__link {
   display: block;
   padding: 12px 24px;
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
@@ -220,7 +238,8 @@ body.has-active-menu {
   cursor: pointer;
 }
 
-.menu--push-left .menu__close {
+.menu--push-left .menu__close,
+.menu--slide-right .menu__close {
   display: block;
   padding: 12px 30px 12px 24px;
   width: 100%;
@@ -229,10 +248,15 @@ body.has-active-menu {
   cursor: pointer;
 }
 
-.menu--push-left .menu__close > strong {
+.menu--push-left .menu__close > strong,
+.menu--slide-right .menu__close > strong {
   float: left;
 }
 
+/************************************************/
+/**
+ * Menu Left
+ */
 .menu--push-left {
   top: 0;
   left: 0;
@@ -260,7 +284,27 @@ main.has-push-left {
 }
 
 /************************************************/
-/*
+/**
+ * Menu Right
+ */
+.menu--slide-right {
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+
+@media all and (min-width: 320px) {
+  .menu--slide-right {
+    transform: translateX(300px);
+  }
+}
+
+.menu--slide-right.is-active {
+  transform: translateX(0);
+}
+
+/************************************************/
+/**
  * Menu Special Character
  */
 .menu-special-char {
