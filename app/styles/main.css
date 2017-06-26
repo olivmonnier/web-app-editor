@@ -50,6 +50,29 @@ section {
   }
 }
 
+input.nav-item, input, button {
+  margin: 0;
+  padding: 8px 16px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+input.nav-item, input {
+  background-color: #193552;
+}
+
+button, input, input.nav-item, label {
+  text-align: left;
+  color: #e5e8eb;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 @media all and (max-width: 767px) {
   .hidden-xs {
     display: none;
@@ -76,8 +99,24 @@ header > button {
   width: 45px;
 }
 
+header > button:last-child {
+  border-left: 1px solid #001b38;
+}
+
+@media all and (min-width: 768px) {
+  header > button:last-child {
+    width: 100px;
+  }
+}
+
 header > nav {
   width: calc(100% - 90px);
+}
+
+@media all and (min-width: 768px) {
+  header > nav {
+    width: calc(100% - 145px);
+  }
 }
 
 header > *, header > nav > * {
@@ -90,18 +129,6 @@ header > * {
 
 header > nav > * {
   vertical-align: middle;
-}
-
-header > nav input.nav-item {
-  background-color: #193552;
-  text-align: left;
-}
-
-header button, header input {
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  border-color: transparent;
 }
 
 .nav-item {
@@ -120,7 +147,7 @@ header .nav-item:first-child {
   border-left: none;
 }
 
-header .nav-item:last-child {
+header > .nav-item:last-child {
   border-right: none;
 }
 /************************************************/
@@ -156,6 +183,27 @@ header .nav-item:last-child {
 
 .menu__close:focus {
   outline: none;
+}
+
+.menu form {
+  padding: 12px 24px;
+}
+
+.menu form:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.menu form input {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+}
+
+.menu form button {
+  float: right;
+  background-color: #193552;
 }
 
 body.has-active-menu {
@@ -220,6 +268,7 @@ body.has-active-menu #editor {
 
 .menu--push-left .menu__item .menu__remove,
 .menu--slide-right .menu__item .menu__remove {
+  padding: 0;
   float: right;
   background-color: transparent;
   border-color: transparent;
@@ -241,7 +290,7 @@ body.has-active-menu #editor {
 .menu--push-left .menu__close,
 .menu--slide-right .menu__close {
   display: block;
-  padding: 12px 30px 12px 24px;
+  padding: 12px 25px 12px 24px;
   width: 100%;
   text-align: right;
   font-weight: bold;
