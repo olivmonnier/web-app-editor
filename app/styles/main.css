@@ -44,7 +44,7 @@ section {
   height: calc(100% - 40px);
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 992px) {
   section {
     height: calc(100% - 80px);
   }
@@ -79,9 +79,9 @@ header > *, header > nav > * {
   vertical-align: middle;
 }
 
-header > nav input[type="text"] {
-  background-color: #193552 !important;
-  text-align: left !important;
+header > nav input.nav-item {
+  background-color: #193552;
+  text-align: left;
 }
 
 header button, header input {
@@ -269,7 +269,7 @@ main.has-push-left {
   padding-bottom: 12px;
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 992px) {
   .menu-special-char {
     display: none;
   }

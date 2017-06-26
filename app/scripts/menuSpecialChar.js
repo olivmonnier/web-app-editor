@@ -3,6 +3,7 @@ const insertCharacter = function(e) {
   const elem = e.target;
 
   editor.insert(elem.textContent);
+  editor.focus();
 }
 
 Array.from(document.querySelectorAll('.menu-special-char .nav-item'))
