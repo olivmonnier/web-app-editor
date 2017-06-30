@@ -48,8 +48,10 @@
     <nav class="menu menu--slide-right">
       <button class="menu__close"><strong>Settings</strong><i class="fa fa-times" aria-hidden="true"></i></button>
       <form>
-        <label>Font size (in px): </label>
+        <label for="inputFontSize">Font size: </label>
         <input type="number" id="inputFontSize"/>
+        <label for="inputTabSize">Tab size: </label>
+        <input type="number" id="inputTabSize"/>
         <button id="btnSaveSettings">Save</button>
       </form>
     </nav>
@@ -69,32 +71,33 @@
         <pre id="editor"></pre>
       </section>
       <nav class="menu-special-char scroll-horizontal">
-        <a class="nav-item">{</a>
-        <a class="nav-item">}</a>
-        <a class="nav-item">[</a>
-        <a class="nav-item">]</a>
-        <a class="nav-item">(</a>
-        <a class="nav-item">)</a>
-        <a class="nav-item">&lt;</a>
-        <a class="nav-item">&gt;</a>
-        <a class="nav-item">:</a>
-        <a class="nav-item">;</a>
-        <a class="nav-item">,</a>
-        <a class="nav-item">=</a>
-        <a class="nav-item">.</a>
-        <a class="nav-item">'</a>
-        <a class="nav-item">"</a>
-        <a class="nav-item">`</a>
-        <a class="nav-item">-</a>
-        <a class="nav-item">_</a>
-        <a class="nav-item">\</a>
-        <a class="nav-item">/</a>
-        <a class="nav-item">|</a>
-        <a class="nav-item">#</a>
-        <a class="nav-item">@</a>
-        <a class="nav-item">?</a>
-        <a class="nav-item">&</a>
-        <a class="nav-item">%</a>
+        <a class="nav-item" data-character="  ">TAB</a>
+        <a class="nav-item" data-character="{">{</a>
+        <a class="nav-item" data-character="}">}</a>
+        <a class="nav-item" data-character="[">[</a>
+        <a class="nav-item" data-character="]">]</a>
+        <a class="nav-item" data-character="(">(</a>
+        <a class="nav-item" data-character=")">)</a>
+        <a class="nav-item" data-character="<">&lt;</a>
+        <a class="nav-item" data-character=">">&gt;</a>
+        <a class="nav-item" data-character=":">:</a>
+        <a class="nav-item" data-character=";">;</a>
+        <a class="nav-item" data-character=",">,</a>
+        <a class="nav-item" data-character="=">=</a>
+        <a class="nav-item" data-character=".">.</a>
+        <a class="nav-item" data-character="'">'</a>
+        <a class="nav-item" data-character='"'>"</a>
+        <a class="nav-item" data-character="`">`</a>
+        <a class="nav-item" data-character="-">-</a>
+        <a class="nav-item" data-character="_">_</a>
+        <a class="nav-item" data-character="\">\</a>
+        <a class="nav-item" data-character="/">/</a>
+        <a class="nav-item" data-character="|">|</a>
+        <a class="nav-item" data-character="#">#</a>
+        <a class="nav-item" data-character="@">@</a>
+        <a class="nav-item" data-character="?">?</a>
+        <a class="nav-item" data-character="&">&</a>
+        <a class="nav-item" data-character="%">%</a>
       </nav>
     </main>
     <div id="mask" class="mask"></div>
