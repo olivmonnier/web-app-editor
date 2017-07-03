@@ -186,7 +186,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/public/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['scripts', 'styles', 'copy:ace', 'fonts', 'fonts:css'], () => {
+gulp.task('serve', ['scripts', 'styles', 'copy:ace', 'fonts'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -228,7 +228,7 @@ gulp.task('serve:dist', ['default'], () =>
 // Build production files, the default task
 gulp.task('default', ['clean'], cb =>
   runSequence(
-    ['fonts', 'fonts:css'],
+    ['fonts'], //'fonts:css'
     'styles',
     ['html', 'scripts', 'images', 'copy', 'copy:ace'],
     'generate-service-worker',
