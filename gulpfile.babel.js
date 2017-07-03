@@ -272,6 +272,7 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
     ],
     staticFileGlobs: [
       // Add/remove glob patterns to match your directory setup.
+      `${rootDir}/fonts/**/*`,
       `${rootDir}/images/**/*`,
       `${rootDir}/scripts/**/*.js`,
       `${rootDir}/styles/**/*.css`,
